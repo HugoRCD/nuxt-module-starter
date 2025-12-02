@@ -3,10 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "pnpm -F playground dev",
-    "docs": "pnpm -F docs dev",
+    "dev": "pnpm -F my-module-playground dev",
+    "docs": "pnpm -F my-module-docs dev",
     "build": "pnpm -F my-module build",
-    "build:docs": "pnpm -F docs build",
+    "build:docs": "pnpm -F my-module-docs build",
     "dev:prepare": "pnpm -F my-module dev:prepare",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",

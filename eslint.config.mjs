@@ -11,8 +11,8 @@ export default createConfigForNuxt({
   },
   dirs: {
     src: [
-      './apps/playground',
-      './packages/my-module',
+      './apps',
+      './packages',
     ],
   },
 })

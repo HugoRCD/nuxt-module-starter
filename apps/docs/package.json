@@ -1,5 +1,5 @@
 {
-  "name": "docs",
+  "name": "my-module-docs",
   "private": true,
   "scripts": {
     "dev": "nuxt dev --extends docus",

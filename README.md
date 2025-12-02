@@ -37,7 +37,6 @@ npx nuxi module add my-module
 
 That's it! You can now use My Module in your Nuxt app ✨
 
-
 ## Contribution
 
 <details>
@@ -48,26 +47,40 @@ That's it! You can now use My Module in your Nuxt app ✨
   pnpm install
 
   # Generate type stubs
-  pnpm run dev:prepare
+  pnpm dev:prepare
 
   # Develop with the playground
-  pnpm run dev
+  pnpm dev
 
-  # Build the playground
-  pnpm run dev:build
+  # Develop with the docs
+  pnpm docs
+
+  # Build the module
+  pnpm build
 
   # Run ESLint
-  pnpm run lint
+  pnpm lint
 
   # Run Vitest
-  pnpm run test
-  npm run test:watch
+  pnpm test
+  pnpm test:watch
 
   # Release new version
-  pnpm run release
+  pnpm release
   ```
 
 </details>
+
+## Project Structure
+
+```
+├── apps/
+│   ├── my-module-docs/        # Documentation site
+│   └── my-module-playground/  # Development playground
+├── packages/
+│   └── my-module/             # The Nuxt module
+└── package.json               # Monorepo root
+```
 
 <!-- Badges -->
 [npm-version-src]: https://img.shields.io/npm/v/my-module/latest.svg?style=flat&colorA=020420&colorB=00DC82
