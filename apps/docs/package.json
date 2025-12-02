@@ -3,7 +3,10 @@
   "private": true,
   "scripts": {
     "dev": "nuxt dev --extends docus",
-    "build": "nuxt build --extends docus"
+    "build": "nuxt build --extends docus",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
     "docus": "latest",

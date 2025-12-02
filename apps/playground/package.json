@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "nuxi dev",
     "build": "nuxi build",
-    "generate": "nuxi generate"
+    "generate": "nuxi generate",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
     "my-module": "workspace:*",

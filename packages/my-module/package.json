@@ -2,7 +2,10 @@
   "name": "my-module",
   "version": "1.0.0",
   "description": "My new Nuxt module",
-  "repository": "your-org/my-module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-org/your-module.git"
+  },
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -30,7 +33,7 @@
     "lint:fix": "eslint . --fix",
     "test": "vitest run",
     "test:watch": "vitest watch",
-    "test:types": "vue-tsc --noEmit"
+    "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
     "@nuxt/kit": "^4.2.1"

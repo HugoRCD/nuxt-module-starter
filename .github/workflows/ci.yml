@@ -7,43 +7,101 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
-  lint:
+  build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
-
       - uses: pnpm/action-setup@v4
-
+        with:
+          version: 9.15.0
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-
+          node-version: 22
+          cache: 'pnpm'
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
+      - name: Prepare
+        run: pnpm run dev:prepare
+      - name: Build module
+        run: pnpm run build:module
 
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Prepare
+        run: pnpm run dev:prepare
       - name: Lint
         run: pnpm run lint
 
-  test:
+  typecheck:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
-
       - uses: pnpm/action-setup@v4
-
+        with:
+          version: 9.15.0
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-
+          node-version: 22
+          cache: 'pnpm'
       - name: Install dependencies
-        run: pnpm install
-
-      - name: Playground prepare
+        run: pnpm install --frozen-lockfile
+      - name: Prepare
         run: pnpm run dev:prepare
+      - name: Typecheck
+        run: pnpm run typecheck
 
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Prepare
+        run: pnpm run dev:prepare
       - name: Test
         run: pnpm run test
+
+  publish:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
+    needs: [build, lint, typecheck, test]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Prepare
+        run: pnpm run dev:prepare
+      - name: Build module
+        run: pnpm run build:module
+      - name: Publish
+        run: pnpx pkg-pr-new publish --compact --no-template --pnpm './packages/my-module'
