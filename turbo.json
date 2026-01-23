@@ -1,0 +1,33 @@
+{
+  "$schema": "https://turborepo.dev/schema.v2.json",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".vercel/output/**", "dist/**", ".output/**", ".nuxt/**"]
+    },
+    "dev": {
+      "dependsOn": ["dev:prepare"],
+      "cache": false,
+      "persistent": true
+    },
+    "dev:prepare": {
+      "dependsOn": ["^dev:prepare"],
+      "outputs": ["dist/**", ".output/**", ".nuxt/**"]
+    },
+    "transit": {
+      "dependsOn": ["^transit"]
+    },
+    "lint": {
+      "dependsOn": ["transit"]
+    },
+    "lint:fix": {
+      "cache": false
+    },
+    "test": {
+      "dependsOn": ["build"]
+    },
+    "typecheck": {
+      "dependsOn": ["transit"]
+    }
+  }
+}

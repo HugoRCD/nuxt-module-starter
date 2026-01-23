@@ -3,11 +3,18 @@
   "private": true,
   "scripts": {
     "dev": "nuxt dev --extends docus",
-    "build": "nuxt build --extends docus"
+    "dev:prepare": "nuxt prepare --extends docus",
+    "build": "nuxt build --extends docus",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
     "docus": "latest",
     "better-sqlite3": "^12.2.0",
-    "nuxt": "^4.1.2"
+    "nuxt": "^4.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.2"
   }
 }
