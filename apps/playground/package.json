@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "nuxi dev",
+    "dev:prepare": "nuxi prepare",
     "build": "nuxi build",
     "generate": "nuxi generate",
     "lint": "eslint .",
@@ -12,6 +13,6 @@
   },
   "dependencies": {
     "my-module": "workspace:*",
-    "nuxt": "^4.2.1"
+    "nuxt": "^4.3.0"
   }
 }

@@ -1,39 +1,33 @@
 {
-  "$schema": "https://turbo.build/schema.json",
+  "$schema": "https://turborepo.dev/schema.v2.json",
   "tasks": {
     "build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        "dist/**",
-        ".output/**",
-        ".nuxt/**"
-      ]
+      "dependsOn": ["^build"],
+      "outputs": [".vercel/output/**", "dist/**", ".output/**", ".nuxt/**"]
     },
     "dev": {
+      "dependsOn": ["dev:prepare"],
       "cache": false,
       "persistent": true
     },
     "dev:prepare": {
-      "cache": false,
-      "outputs": [
-        "dist/**",
-        ".output/**",
-        ".nuxt/**"
-      ]
+      "dependsOn": ["^dev:prepare"],
+      "outputs": ["dist/**", ".output/**", ".nuxt/**"]
+    },
+    "transit": {
+      "dependsOn": ["^transit"]
     },
     "lint": {
-      "cache": true
+      "dependsOn": ["transit"]
     },
     "lint:fix": {
       "cache": false
     },
     "test": {
-      "cache": true
+      "dependsOn": ["build"]
     },
     "typecheck": {
-      "cache": true
+      "dependsOn": ["transit"]
     }
   }
 }

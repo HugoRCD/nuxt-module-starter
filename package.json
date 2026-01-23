@@ -6,20 +6,21 @@
     "type": "git",
     "url": "git+https://github.com/your-org/your-module.git"
   },
-  "author": "",
+  "author": "HugoRCD",
   "license": "MIT",
-  "packageManager": "pnpm@9.15.0",
+  "packageManager": "bun@1.2.4",
   "scripts": {
-    "dev": "turbo dev --filter=my-module-playground",
-    "dev:prepare": "turbo dev:prepare",
-    "dev:docs": "turbo dev --filter=my-module-docs",
-    "build": "turbo build",
-    "build:module": "turbo build --filter=my-module",
-    "build:docs": "turbo build --filter=my-module-docs",
-    "lint": "turbo lint",
-    "lint:fix": "turbo lint:fix",
-    "test": "turbo test",
-    "typecheck": "turbo typecheck",
+    "dev": "turbo run dev --filter=my-module-playground",
+    "dev:prepare": "turbo run dev:prepare",
+    "dev:docs": "turbo run dev --filter=my-module-docs",
+    "docs": "turbo run dev --filter=my-module-docs",
+    "build": "turbo run build",
+    "build:module": "turbo run build --filter=my-module",
+    "build:docs": "turbo run build --filter=my-module-docs",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck",
     "automd": "automd --config .github/automd.json"
   },
   "devDependencies": {
@@ -28,7 +29,7 @@
     "automd": "^0.4.0",
     "eslint": "^9.39.1",
     "turbo": "^2.6.1",
-    "typescript": "~5.9.3",
+    "typescript": "^5.9.3",
     "vitest": "^4.0.14",
     "vue-tsc": "^3.1.5"
   },
@@ -36,9 +37,12 @@
     "apps/*",
     "packages/*"
   ],
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "better-sqlite3"
-    ]
-  }
+  "trustedDependencies": [
+    "@parcel/watcher",
+    "better-sqlite3",
+    "esbuild",
+    "sharp",
+    "unrs-resolver",
+    "vue-demi"
+  ]
 }

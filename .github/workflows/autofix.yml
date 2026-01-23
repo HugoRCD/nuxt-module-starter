@@ -14,17 +14,15 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
+      - uses: oven-sh/setup-bun@v2
         with:
-          version: latest
-          run_install: false
+          bun-version: latest
 
-      - name: 📦 Install dependencies
-        run: pnpm install --frozen-lockfile
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
 
-      - name: 💅 Lint code
-        run: pnpm run lint:fix
+      - name: Lint code
+        run: bun run lint:fix
 
       - uses: autofix-ci/action@635ffb0c9798bd160680f18fd73371e355b85f27
         with:

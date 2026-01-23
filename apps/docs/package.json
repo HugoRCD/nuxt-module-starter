@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxt dev --extends docus",
+    "dev:prepare": "nuxt prepare --extends docus",
     "build": "nuxt build --extends docus",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -11,6 +12,6 @@
   "dependencies": {
     "docus": "latest",
     "better-sqlite3": "^12.2.0",
-    "nuxt": "^4.1.2"
+    "nuxt": "^4.3.0"
   }
 }
