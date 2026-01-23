@@ -2,24 +2,47 @@
   "name": "nuxt-module-starter",
   "private": true,
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-org/your-module.git"
+  },
+  "author": "HugoRCD",
+  "license": "MIT",
+  "packageManager": "bun@1.2.4",
   "scripts": {
-    "dev": "pnpm -F my-module-playground dev",
-    "docs": "pnpm -F my-module-docs dev",
-    "build": "pnpm -F my-module build",
-    "build:docs": "pnpm -F my-module-docs build",
-    "dev:prepare": "pnpm -F my-module dev:prepare",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "test": "pnpm -F my-module test",
-    "test:watch": "pnpm -F my-module test:watch",
-    "release": "pnpm -F my-module release"
+    "dev": "turbo run dev --filter=my-module-playground",
+    "dev:prepare": "turbo run dev:prepare",
+    "dev:docs": "turbo run dev --filter=my-module-docs",
+    "docs": "turbo run dev --filter=my-module-docs",
+    "build": "turbo run build",
+    "build:module": "turbo run build --filter=my-module",
+    "build:docs": "turbo run build --filter=my-module-docs",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck",
+    "automd": "automd --config .github/automd.json"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^1.11.0",
     "@types/node": "latest",
+    "automd": "^0.4.0",
     "eslint": "^9.39.1",
-    "typescript": "~5.9.3",
+    "turbo": "^2.6.1",
+    "typescript": "^5.9.3",
     "vitest": "^4.0.14",
     "vue-tsc": "^3.1.5"
-  }
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "trustedDependencies": [
+    "@parcel/watcher",
+    "better-sqlite3",
+    "esbuild",
+    "sharp",
+    "unrs-resolver",
+    "vue-demi"
+  ]
 }

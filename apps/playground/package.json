@@ -4,11 +4,15 @@
   "type": "module",
   "scripts": {
     "dev": "nuxi dev",
+    "dev:prepare": "nuxi prepare",
     "build": "nuxi build",
-    "generate": "nuxi generate"
+    "generate": "nuxi generate",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
     "my-module": "workspace:*",
-    "nuxt": "^4.2.1"
+    "nuxt": "^4.3.0"
   }
 }
