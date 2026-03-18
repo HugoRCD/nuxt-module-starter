@@ -27,7 +27,7 @@
     "@nuxt/eslint-config": "^1.15.2",
     "@types/node": "latest",
     "automd": "^0.4.3",
-    "eslint": "^9.39.4",
+    "eslint": "^10.0.3",
     "turbo": "^2.8.18",
     "typescript": "^5.9.3",
     "vitest": "^4.1.0",
