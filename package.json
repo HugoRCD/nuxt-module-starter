@@ -28,10 +28,10 @@
     "@types/node": "latest",
     "automd": "^0.4.3",
     "eslint": "^9.39.4",
-    "turbo": "^2.8.14",
+    "turbo": "^2.8.18",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.18",
-    "vue-tsc": "^3.2.5"
+    "vitest": "^4.1.0",
+    "vue-tsc": "^3.2.6"
   },
   "workspaces": [
     "apps/*",
