@@ -29,7 +29,7 @@
     "automd": "^0.4.3",
     "eslint": "^10.0.3",
     "turbo": "^2.8.18",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.2",
     "vitest": "^4.1.0",
     "vue-tsc": "^3.2.6"
   },
