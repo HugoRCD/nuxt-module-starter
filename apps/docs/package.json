@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "docus": "latest",
-    "better-sqlite3": "^12.8.0",
+    "better-sqlite3": "^12.9.0",
     "nuxt": "^4.4.2"
   },
   "devDependencies": {
