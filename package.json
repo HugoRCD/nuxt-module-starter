@@ -27,11 +27,11 @@
     "@nuxt/eslint-config": "^1.15.2",
     "@types/node": "latest",
     "automd": "^0.4.3",
-    "eslint": "^10.2.0",
+    "eslint": "^10.2.1",
     "turbo": "^2.9.6",
-    "typescript": "^6.0.2",
+    "typescript": "^6.0.3",
     "vitest": "^4.1.4",
-    "vue-tsc": "^3.2.6"
+    "vue-tsc": "^3.2.7"
   },
   "workspaces": [
     "apps/*",

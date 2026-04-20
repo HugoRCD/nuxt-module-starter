@@ -15,6 +15,6 @@
     "nuxt": "^4.4.2"
   },
   "devDependencies": {
-    "eslint": "^10.2.0"
+    "eslint": "^10.2.1"
   }
 }
