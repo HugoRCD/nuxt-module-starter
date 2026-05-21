@@ -8,7 +8,7 @@
   },
   "author": "HugoRCD",
   "license": "MIT",
-  "packageManager": "bun@1.2.4",
+  "packageManager": "bun@1.3.14",
   "scripts": {
     "dev": "turbo run dev --filter=my-module-playground",
     "dev:prepare": "turbo run dev:prepare",
